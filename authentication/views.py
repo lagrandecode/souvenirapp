@@ -19,4 +19,4 @@ def send_email(email):
     send_email(subject,messages,email_from,[email],fail_silently=False)
     user_obj = User.objects.all(email=email)
     user_obj.otp = otp
-    
+    user_obj.save()
