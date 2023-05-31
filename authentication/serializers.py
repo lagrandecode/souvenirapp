@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import User
-from .models import Addition
+
+
+from rest_framework import serializers
+
 
 
 
@@ -22,7 +25,8 @@ class VerifySerializer(serializers.Serializer):
     otp = serializers.CharField()
 
 
-# class AddionSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Addition
-#         fields = '__all__'
+
+
+
+
+
