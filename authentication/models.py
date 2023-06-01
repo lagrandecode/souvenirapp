@@ -37,14 +37,11 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractUser):
     username = None
-<<<<<<< HEAD
-    name = models.Charfield(max_length=50)
-=======
     # name = models.CharField(max_length=50)
->>>>>>> 99e43c5666d148afb58d8fb3ff5ace94a91960da
     email = models.EmailField(max_length=80,unique=True)
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=50)
+    # pro_pics = models.ImageField(upload_to='photos/customer_photo/',null=True,blank=True)
     otp = models.CharField(max_length=200,null=True,blank=True)
     isVerified = models.BooleanField(default=False)
 
