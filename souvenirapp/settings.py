@@ -82,17 +82,10 @@ WSGI_APPLICATION = 'souvenirapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-<<<<<<< HEAD
         'NAME': 'training',
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'localhost',
-=======
-        'NAME': 'testing', 
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost', 
->>>>>>> 99e43c5666d148afb58d8fb3ff5ace94a91960da
         'PORT': '5432',
     }
 }

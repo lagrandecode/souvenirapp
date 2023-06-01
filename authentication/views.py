@@ -16,9 +16,8 @@ from .models import User
 #first let's create sned email 
 def send_otp(email):
     subject = 'VERIFICATION EMAIL'
-    user = User.objects.get(name=name)
     otp = random.randint(10001, 99999)
-    messages = f"Your verification code is {otp}, {user}"
+    messages = f"Your verification code is {otp}"
     email_from = settings.EMAIL_HOST
     try:
         user_obj = User.objects.get(email=email)
