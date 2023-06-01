@@ -7,8 +7,6 @@ from django.db import models
 from django.db import IntegrityError
 # Create your models here.
 
-<<<<<<< HEAD
-=======
 
 class MyUserManager(BaseUserManager):
     def create_user(self,email,password,**extra_fields):
@@ -39,6 +37,7 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractUser):
     username = None
+    # name = models.CharField(max_length=50)
     email = models.EmailField(max_length=80,unique=True)
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=50)
@@ -52,4 +51,3 @@ class User(AbstractUser):
     def __str__(self):
         return f"<User {self.email}"
     
->>>>>>> b4d280943289d390701b2aa507cd058d7a964982
