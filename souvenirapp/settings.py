@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIRS = os.path.join(BASE_DIR/'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,6 +28,7 @@ SECRET_KEY = 'django-insecure-)xkm)e=xcpd^y@x+ii)5ahf-51y0%qve-62vjcsz@h1=m$vp)n
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'authentication.User'
 
 
 # Application definition
@@ -37,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication.apps.AuthenticationConfig',
+    #Third party application
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'souvenirapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIRS,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,8 +122,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    BASE_DIR/'static'
+]
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'djangosendmailtesting@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'mwillnjuofnleqze'
