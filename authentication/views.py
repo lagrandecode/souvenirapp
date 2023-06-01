@@ -16,8 +16,9 @@ from .models import User
 #first let's create sned email 
 def send_otp(email):
     subject = 'VERIFICATION EMAIL'
+    user = User.objects.get(name=name)
     otp = random.randint(10001, 99999)
-    messages = f"Your verification code is {otp}"
+    messages = f"Your verification code is {otp}, {user}"
     email_from = settings.EMAIL_HOST
     try:
         user_obj = User.objects.get(email=email)
@@ -30,7 +31,7 @@ def send_otp(email):
 
 
 
-
+#codebase for signing in 
 class SignupView(generics.GenericAPIView):
     serializer_class = serializers.UserCreationSerializer
     def post(self,request):
@@ -42,5 +43,29 @@ class SignupView(generics.GenericAPIView):
         return Response(data=serializers.errors,status=status.HTTP_400_BAD_REQUEST)
 
     
+#codebase for verifying OTP
 
+class VerifyView(generics.GenericAPIView):
+    serializer_class = serializers.VerifySerializer
+    def post(self,request):
+        try:
+            serializer = self.serializer_class(data=request.data)
+            if serializer.is_valid():
+                email = serializer.data['email']
+                otp = serializer.data['otp']
+                user = User.objects.filter(email=email)
+                if not user.exist():
+                    return Response({message:'Something went wrong',data:'wrong email'},status=status.HTTP_400_BAD_REQUEST)
+                if user[0].otp !=otp:
+                    return Response({message:'Something went wrong',data:'wrong otp'},status=status.HTTP_400_BAD_REQUEST)
+                user = user.first()
+                user.isVerified == True
+                user.save()
+                return Response({
+                    message:'account verified',
+                    data:{}
+                },status=status.HTTP_200_OK)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
+        except Exception as e:
+            print(e)
