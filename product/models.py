@@ -10,14 +10,14 @@ class Category(models.Model):
     date = models.DateField(auto_now_add=True)
 
 
-class Product(models,Model):
+class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
     product_image = models.ImageField(upload_to='photos/product_image/',blank=True,null=True)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     description = models.CharField(max_length=1000)
-    timestamp = models.DateTimeField(auto)
+    timestamp = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
 
