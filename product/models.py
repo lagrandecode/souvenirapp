@@ -11,6 +11,14 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    CATEGORY = (
+        ('Home & Garden','Home & Garden'),
+        ('Clothing','Clothing'),
+        ('Accessories','Accessories'),
+        ('Electronics','Electronics'),
+        ('Shoes','Shoes'),
+        ('Jewelries','Jewelries')
+    )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
     product_image = models.ImageField(upload_to='photos/product_image/',blank=True,null=True)
