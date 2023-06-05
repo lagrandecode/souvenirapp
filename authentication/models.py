@@ -41,7 +41,6 @@ class User(AbstractUser):
     email = models.EmailField(max_length=80,unique=True)
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=50)
-    # pro_pics = models.ImageField(upload_to='photos/customer_photo/',null=True,blank=True)
     otp = models.CharField(max_length=200,null=True,blank=True)
     isVerified = models.BooleanField(default=False)
 
