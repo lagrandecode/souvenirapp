@@ -24,3 +24,18 @@ class ProductView(generics.GenericAPIView):
             serializer.save()
             return Response(serializer.data,status=status.HTTP_200_OK)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProductViewDetail(generics.GenericAPIView):
+    serializer_class = serializers.ProductSerializer
+    queryset = Product.objects.all()
+    def get(self,request,pk):
+        product = Product.objects.get(pk=pk)
+        serializers = serializer_class()
+        pass
+
+    def put(self,request,pk):
+        pass
+
+    def delete(self,request,pk):
+        pass
