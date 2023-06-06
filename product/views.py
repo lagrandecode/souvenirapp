@@ -34,7 +34,14 @@ class ProductViewDetail(generics.GenericAPIView):
         return Response(serializers.data,status=status.HTTP_200_OK)
 
     def put(self,request,pk):
-        pass
+        product = Product.objects.get(id=pk)
+        serializers = self.serializer_class(data=request.data,instance=product)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data,status=status.HTTP_200_OK)
+        return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self,request,pk):
-        pass
+        product = Product.objects.get(id=pk)
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
