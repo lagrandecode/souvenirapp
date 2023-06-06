@@ -28,11 +28,10 @@ class ProductView(generics.GenericAPIView):
 
 class ProductViewDetail(generics.GenericAPIView):
     serializer_class = serializers.ProductSerializer
-    queryset = Product.objects.all()
     def get(self,request,pk):
-        product = Product.objects.get(pk=pk)
-        serializers = serializer_class()
-        pass
+        product = Product.objects.get(id=pk)
+        serializers = self.serializer_class(product)
+        return Response(serializers.data,status=status.HTTP_200_OK)
 
     def put(self,request,pk):
         pass
