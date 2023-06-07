@@ -3,7 +3,7 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from . import serializers
 from .models import Product
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 
 
 # Create your views here.
@@ -27,6 +27,7 @@ class ProductView(generics.GenericAPIView):
 
 
 class ProductViewDetail(generics.GenericAPIView):
+    permission_classes = [IsAdminUser,]
     serializer_class = serializers.ProductSerializer
     def get(self,request,pk):
         product = Product.objects.get(id=pk)
