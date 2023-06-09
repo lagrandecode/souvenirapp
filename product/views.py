@@ -5,11 +5,7 @@ from . import serializers
 from .models import Product
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 
-
 # Create your views here.
-
-
-
 class ProductView(generics.GenericAPIView):
     serializer_class = serializers.ProductSerializer
     queryset = Product.objects.all()
@@ -24,7 +20,6 @@ class ProductView(generics.GenericAPIView):
             serializer.save()
             return Response(serializer.data,status=status.HTTP_200_OK)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
 
 class ProductViewDetail(generics.GenericAPIView):
     permission_classes = [IsAdminUser,]

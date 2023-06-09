@@ -6,3 +6,8 @@ class OrderSerializers(serializers.ModelSerializer):
     class Meta:
         model = Orders
         fields = '__all__'
+
+class StatusSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ['status']
