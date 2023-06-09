@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',#authentication app
     'product.apps.ProductConfig',#product app
-    'order.apps.OrderConfig',
+    'order.apps.OrderConfig',#order app
+    'feedback.apps.FeedbackConfig',#feeback app
     #Third party application
     'rest_framework',
 ]
