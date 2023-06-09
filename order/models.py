@@ -21,7 +21,7 @@ class Orders(models.Model):
     address = models.CharField(max_length=500,null=True)
     phone_number = models.CharField(max_length=14,null=True)
     order_date= models.DateField(auto_now_add=True,null=True)
-    status=models.CharField(max_length=50,null=True,choices=STATUS,editable=False)
+    status=models.CharField(max_length=50,null=True,choices=STATUS)
 
     class Meta:
         verbose_name_plural = 'Orders'
