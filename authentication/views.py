@@ -28,9 +28,7 @@ def send_otp(email):
         user_obj.save()
     send_mail(subject,messages,email_from,[email],fail_silently=False)
 
-
-
-#codebase for signing in 
+#codebase for sign in 
 class SignupView(generics.GenericAPIView):
     serializer_class = serializers.UserCreationSerializer
     def post(self,request):
@@ -40,10 +38,8 @@ class SignupView(generics.GenericAPIView):
             send_otp(serializers.data['email'])
             return Response(data=({'message':'account created, check your email for OTP'},serializers.data),status=status.HTTP_201_CREATED)
         return Response(data=serializers.errors,status=status.HTTP_400_BAD_REQUEST)
-
-    
+  
 #codebase for verifying OTP
-
 class VerifyView(generics.GenericAPIView):
     serializer_class = serializers.VerifySerializer
     def post(self,request):
@@ -65,6 +61,5 @@ class VerifyView(generics.GenericAPIView):
                     data:{}
                 },status=status.HTTP_200_OK)
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
         except Exception as e:
             print(e)

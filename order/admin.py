@@ -3,5 +3,6 @@ from .models import Orders
 
 # Register your models here.
 
-
-admin.site.register(Orders)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['customer','product','email','address','phone_number']
+admin.site.register(Orders,OrderAdmin)
