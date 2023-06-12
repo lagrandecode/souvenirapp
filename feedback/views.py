@@ -21,3 +21,5 @@ class FeedbackView(generics.GenericAPIView):
             serializers.save()
             return Response(serializers.data,status=status.HTTP_200_OK)
         return Response(seriliazers.errors,status=status.HTTP_400_BAD_REQUEST)
+
+        # 
