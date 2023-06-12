@@ -16,7 +16,7 @@ class FeedbackView(generics.GenericAPIView):
         return Response(serilializers.data,status=status.HTTP_200_OK)
     def post(self,request):
         data = request.data
-        serializers = self.serializer_class(data)
+        serializers = self.serializer_class(data=data)
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data,status=status.HTTP_200_OK)
