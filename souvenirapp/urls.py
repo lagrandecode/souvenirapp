@@ -9,5 +9,5 @@ urlpatterns = [
     path('',include('authentication.urls')),
     path('product/',include('product.urls')),
     path('order/',include('order.urls')),
-    # path('feedback/',include('feedback.urls')),
+    path('feedback/',include('feedback.urls')),
 ]
