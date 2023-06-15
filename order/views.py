@@ -47,7 +47,7 @@ class OrderDetailView(generics.GenericAPIView):
 
 class StatusUpdateView(generics.GenericAPIView):
     serializer_class = serializers.StatusSerializers
-    # permission_classes = [IsAdminUser,]
+    permission_classes = [IsAdminUser,]
     def put(self,request,pk):
         order = Orders.objects.get(id=pk)
         serializers = self.serializer_class(data=request.data,instance=order)
