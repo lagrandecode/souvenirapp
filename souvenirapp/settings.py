@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'feedback.apps.FeedbackConfig',#feeback app
     #Third party application
     'rest_framework',
+    # 'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
+    # 'drf_yasg',
 ]
 
 MIDDLEWARE = [
