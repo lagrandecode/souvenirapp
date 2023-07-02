@@ -12,7 +12,8 @@ class OrderView(generics.GenericAPIView):
     queryset = Orders.objects.all()
     def get(self,request):
         order = Orders.objects.all()
-        serializers = self.serializer_class(order,many=True)
+        # rank = Orders.objacts.all()
+        serializers = self.serializer_class(data=order,many=True)
         return Response(serializers.data,status=status.HTTP_200_OK)
 
     def post(self,request):
