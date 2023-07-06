@@ -24,6 +24,7 @@ class OrderView(generics.GenericAPIView):
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class OrderDetailView(generics.GenericAPIView):
+    queryset = Orders.objects.all()
     serializer_class = serializers.OrderSerializers
     permission_classes = [IsAdminUser,]
     def get(self,request,pk):
