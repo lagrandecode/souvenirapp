@@ -49,16 +49,16 @@ class VerifyView(generics.GenericAPIView):
                 email = serializer.data['email']
                 otp = serializer.data['otp']
                 user = User.objects.filter(email=email)
-                if not user.exist():
-                    return Response({message:'Something went wrong',data:'wrong email'},status=status.HTTP_400_BAD_REQUEST)
+                if not user.exists():
+                    return Response({'message':'Something went wrong','data':'wrong email'},status=status.HTTP_400_BAD_REQUEST)
                 if user[0].otp !=otp:
-                    return Response({message:'Something went wrong',data:'wrong otp'},status=status.HTTP_400_BAD_REQUEST)
+                    return Response({'message':'Something went wrong','data':'wrong otp'},status=status.HTTP_400_BAD_REQUEST)
                 user = user.first()
                 user.isVerified == True
                 user.save()
                 return Response({
-                    message:'account verified',
-                    data:{}
+                    'message':'account verified',
+                    'data':{}
                 },status=status.HTTP_200_OK)
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
