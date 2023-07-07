@@ -48,6 +48,7 @@ class OrderDetailView(generics.GenericAPIView):
 #codebase for updating the status 
 
 class StatusUpdateView(generics.GenericAPIView):
+    queryset = Orders.objects.all()
     serializer_class = serializers.StatusSerializers
     permission_classes = [IsAdminUser,]
     def put(self,request,pk):
