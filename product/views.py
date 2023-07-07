@@ -22,6 +22,7 @@ class ProductView(generics.GenericAPIView):
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class ProductViewDetail(generics.GenericAPIView):
+    queryset = Product.objects.all()
     permission_classes = [IsAdminUser,]
     serializer_class = serializers.ProductSerializer
     def get(self,request,pk):
