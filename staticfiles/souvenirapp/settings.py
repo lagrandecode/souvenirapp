@@ -1,7 +1,7 @@
 
 from pathlib import Path
 import os
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +13,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR/'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-)xkm)e=xcpd^y@x+ii)5ahf-51y0%qve-62vjcsz@h1=m$vp)n'
-DATABASE_URL = 'PGPASSWORD=O7EIZuzCTf3EDXLYBbhG psql -h containers-us-west-70.railway.app -U postgres -p 7011 -d railway'
+# DATABASE_URL = 'PGPASSWORD=O7EIZuzCTf3EDXLYBbhG psql -h containers-us-west-70.railway.app -U postgres -p 7011 -d railway'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,14 +81,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'O7EIZuzCTf3EDXLYBbhG',
-        'HOST': 'containers-us-west-70.railway.app',
-        'PORT': '7011',
+        'PASSWORD': 'xbNU5HqZNEhw8h3ARj4N',
+        'HOST': 'containers-us-west-49.railway.app',
+        'PORT': '6911',
     }
 }
-DATABASES = {
-    "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800)
-}
+# DATABASES = {
+#     "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800)
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
