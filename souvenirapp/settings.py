@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'souvenirapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangoapp',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': 'xbNU5HqZNEhw8h3ARj4N',
+        'HOST': 'containers-us-west-49.railway.app',
+        'PORT': '6911',
     }
 }
 
