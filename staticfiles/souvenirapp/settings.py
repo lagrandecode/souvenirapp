@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'souvenirapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'postgresql://postgres:O7EIZuzCTf3EDXLYBbhG@containers-us-west-70.railway.app:7011/railway',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': 'O7EIZuzCTf3EDXLYBbhG',
@@ -86,7 +86,9 @@ DATABASES = {
         'PORT': '7011',
     }
 }
-
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800)
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
