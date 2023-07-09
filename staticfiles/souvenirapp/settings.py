@@ -1,6 +1,7 @@
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,6 +13,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR/'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-)xkm)e=xcpd^y@x+ii)5ahf-51y0%qve-62vjcsz@h1=m$vp)n'
+DATABASE_URL = 'PGPASSWORD=O7EIZuzCTf3EDXLYBbhG psql -h containers-us-west-70.railway.app -U postgres -p 7011 -d railway'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,23 +76,23 @@ WSGI_APPLICATION = 'souvenirapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'djangoapp',
-#         'USER': 'postgres',
-#         'PASSWORD': '123456',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'postgresql://postgres:O7EIZuzCTf3EDXLYBbhG@containers-us-west-70.railway.app:7011/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'O7EIZuzCTf3EDXLYBbhG',
+        'HOST': 'containers-us-west-70.railway.app',
+        'PORT': '7011',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
