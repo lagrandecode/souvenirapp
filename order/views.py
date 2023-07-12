@@ -18,7 +18,7 @@ class OrderView(generics.GenericAPIView):
         return Response(serialized_data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        permission_classes = [IsAdminUser]
+        # permission_classes = [IsAdminUser]
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
