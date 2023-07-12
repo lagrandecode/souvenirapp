@@ -43,7 +43,6 @@ class User(AbstractUser):
     address = models.CharField(max_length=50)
     otp = models.CharField(max_length=200,null=True,blank=True)
     isVerified = models.BooleanField(default=False)
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = MyUserManager()

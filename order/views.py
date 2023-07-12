@@ -8,17 +8,15 @@ from .models import Orders
 
 class OrderView(generics.GenericAPIView):
     serializer_class = serializers.OrderSerializers
-
     def get_queryset(self):
         return Orders.objects.all()
-
     def get(self, request):
         orders = self.get_queryset()
         serialized_data = self.serializer_class(orders, many=True).data
         return Response(serialized_data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        # permission_classes = [IsAdminUser]
+        permission_classes = [IsAdminUser]
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -27,9 +25,7 @@ class OrderView(generics.GenericAPIView):
 
 
 class OrderDetailView(generics.GenericAPIView):
-    permission_classes = [IsAdminUser]
     serializer_class = serializers.OrderSerializers
-
     def get_queryset(self):
         return Orders.objects.all()
 
