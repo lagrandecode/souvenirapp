@@ -63,3 +63,12 @@ class VerifyView(generics.GenericAPIView):
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             print(e)
+
+
+#admin login 
+
+class AdminLogin(generics.GenericAPIView):
+    def get(self,request):
+        if request.user.is_authenticated:
+            return Response({'message':'Home page'},status=status.HTTP_200_OK)
+        return Response({'message':'admin'},status=status.HTTP_200_OK)
