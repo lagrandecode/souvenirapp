@@ -63,3 +63,11 @@ class VerifyView(generics.GenericAPIView):
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             print(e)
+
+#admin and customer interface 
+
+class Interface(APIView):
+    def get(self, request):
+        if request.user.is_authenticated and request.user.is_staff:
+            return Response({'message': 'Admin Interface'})
+        return Response({'message': 'Customer Interface'})
