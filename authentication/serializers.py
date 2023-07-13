@@ -27,8 +27,6 @@ class VerifySerializer(serializers.Serializer):
     otp = serializers.CharField()
 
 
-class AdminCustomerSerializer(serializers.Serializer):
-    message = serializers.CharField()
 
 
 
