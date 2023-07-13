@@ -1,11 +1,6 @@
 from rest_framework import serializers
 from .models import User
-
-
 from rest_framework import serializers
-
-
-
 
 
 class UserCreationSerializer(serializers.ModelSerializer):
@@ -25,6 +20,8 @@ class UserCreationSerializer(serializers.ModelSerializer):
 class VerifySerializer(serializers.Serializer):
     email = serializers.EmailField()
     otp = serializers.CharField()
+
+
 
 
 

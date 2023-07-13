@@ -65,6 +65,7 @@ class VerifyView(generics.GenericAPIView):
             print(e)
 
 
+<<<<<<< HEAD
 #admin login 
 
 class AdminLogin(generics.GenericAPIView):
@@ -72,3 +73,16 @@ class AdminLogin(generics.GenericAPIView):
         if request.user.is_authenticated:
             return Response({'message':'Home page'},status=status.HTTP_200_OK)
         return Response({'message':'admin'},status=status.HTTP_200_OK)
+=======
+#--------------------------------------------------------------------------------------#
+#admin and customer interface 
+#--------------------------------------------------------------------------------------#
+class Interface(APIView):
+    def get(self, request):
+        if request.user.is_authenticated and request.user.is_staff:
+            return Response({'message': 'Admin Interface'})
+        return Response({'message': 'Customer Interface'})
+#--------------------------------------------------------------------------------------#
+#admin and customer interface 
+#--------------------------------------------------------------------------------------#
+>>>>>>> c831198af3a9a7043c4d942f06099bbb030d8db4
