@@ -24,6 +24,7 @@ class Orders(models.Model):
     status=models.CharField(max_length=50,null=True,choices=STATUS)
 
     class Meta:
+        ordering = ['-order_date']
         verbose_name_plural = 'Orders'
 
 

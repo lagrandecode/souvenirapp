@@ -25,10 +25,12 @@ class Product(models.Model):
     discount = models.PositiveIntegerField()
     description = models.CharField(max_length=1000)
     timestamp = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
     def __str__(self):
         return self.name
 
     class Meta:
+        ordering = ['-created_at']
         verbose_name_plural = 'Product'
         
 ###
