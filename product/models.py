@@ -33,4 +33,3 @@ class Product(models.Model):
         ordering = ['-created_at']
         verbose_name_plural = 'Product'
         
-###
