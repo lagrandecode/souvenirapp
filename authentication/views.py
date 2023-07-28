@@ -71,7 +71,7 @@ class VerifyView(generics.GenericAPIView):
 class Interface(APIView):
     def get(self, request):
         if request.user.is_authenticated and request.user.is_staff:
-            return Response({'message': 'Admin Interface'})
+            return Response({'message':'admin Interface'})
         return Response({'message': 'Customer Interface'})
 #--------------------------------------------------------------------------------------#
 #admin and customer interface 
